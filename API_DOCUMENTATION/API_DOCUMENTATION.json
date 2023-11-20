@@ -1,0 +1,719 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sistema de Gerenciamento de Eventos",
+    "description": "API para Gerenciamento de Eventos",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/FELIPEGUIMARAESRATTO/DevWebAvancado/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/admin/eventos": {
+      "post": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Cadastrar Evento",
+        "description": "Cadastra um novo evento.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/admin/eventos/{id}": {
+      "put": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Editar Evento",
+        "description": "Edita as informações de um evento específico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Remover Evento",
+        "description": "Remove um evento.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/admin/eventos/{eventoId}/edicoes": {
+      "post": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Cadastrar Edição de Evento",
+        "description": "Cadastra uma nova edição para um evento específico.",
+        "parameters": [
+          {
+            "name": "eventoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdicaoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/admin/eventos/{eventoId}/edicoes/{edicaoId}": {
+      "put": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Editar Edição de Evento",
+        "description": "Edita as informações de uma edição específica de um evento.",
+        "parameters": [
+          {
+            "name": "eventoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "edicaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdicaoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Remover Edição de Evento",
+        "description": "Remove uma edição específica de um evento.",
+        "parameters": [
+          {
+            "name": "eventoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "edicaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/admin/eventos/{eventoId}/edicoes/{edicaoId}/organizador/{organizadorId}": {
+      "put": {
+        "tags": [
+          "Administrador"
+        ],
+        "summary": "Configurar Organizador de Edição",
+        "description": "Configura o organizador para uma edição específica de um evento.",
+        "parameters": [
+          {
+            "name": "eventoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "edicaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organizadorId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/organizador/edicoes/{id}": {
+      "put": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Editar Dados da Edição",
+        "description": "Edita as informações de uma edição específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdicaoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/organizador/espacos": {
+      "post": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Cadastrar Espaços Disponíveis",
+        "description": "Cadastra novos espaços disponíveis.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EspacoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/organizador/espacos/{id}": {
+      "put": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Editar Espaços Disponíveis",
+        "description": "Edita as informações de um espaço disponível específico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EspacoInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Remover Espaços Disponíveis",
+        "description": "Remove um espaço disponível.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/organizador/atividades": {
+      "post": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Cadastrar Atividade",
+        "description": "Cadastra uma nova atividade.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtividadeInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/organizador/atividades/{id}": {
+      "put": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Editar Atividade",
+        "description": "Edita as informações de uma atividade.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtividadeInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organizador"
+        ],
+        "summary": "Remover Atividade",
+        "description": "Remove uma atividade.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/usuarios/cadastrar": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Se Cadastrar no Sistema",
+        "description": "Realiza o cadastro de um novo usuário no sistema.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/usuarios/{id}/pagina": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Visualizar Página Web",
+        "description": "Obtém a página web personalizada para o usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/usuarios/atividades/{id}": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Visualizar Detalhamento de Atividade",
+        "description": "Obtém detalhes de uma atividade específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/usuarios/atividades/{id}/favoritar": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Favoritar uma Atividade",
+        "description": "Adiciona uma atividade aos favoritos do usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Desfavoritar uma Atividade",
+        "description": "Remove uma atividade dos favoritos do usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/usuarios/mensagens/enviar": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Enviar uma Mensagem com Atividades Selecionadas",
+        "description": "Envia uma mensagem com as atividades selecionadas pelo usuário.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MensagemInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EventoInput": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "sigla": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          }
+        }
+      },
+      "EdicaoInput": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "integer"
+          },
+          "ano": {
+            "type": "integer"
+          },
+          "dataInicial": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFinal": {
+            "type": "string",
+            "format": "date"
+          },
+          "cidade": {
+            "type": "string"
+          }
+        }
+      },
+      "EspacoInput": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "localizacao": {
+            "type": "string"
+          },
+          "capacidade": {
+            "type": "integer"
+          },
+          "recursos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "AtividadeInput": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "horarioInicial": {
+            "type": "string",
+            "format": "time"
+          },
+          "horarioFinal": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "UsuarioInput": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "afiliacao": {
+            "type": "string"
+          }
+        }
+      },
+      "MensagemInput": {
+        "type": "object",
+        "properties": {
+          "atividadesSelecionadas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
