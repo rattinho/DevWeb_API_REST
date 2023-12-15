@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "devweb_apirest/src/main/java",
+        "demo/src/main/java/com/example/demo"
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
