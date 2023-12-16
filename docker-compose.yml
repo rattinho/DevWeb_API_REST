@@ -9,3 +9,11 @@ services:
       - ./database:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  app:
+    build:
+      context: ./apirest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
