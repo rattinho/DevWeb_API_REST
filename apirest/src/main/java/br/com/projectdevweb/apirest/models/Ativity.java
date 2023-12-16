@@ -4,14 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Set;
 
-import org.hibernate.annotations.*;
+
 
 @Entity
 @Table(name = "atividade")
@@ -22,19 +19,56 @@ public class Ativity {
     private String nome;
     private String tipo;
     private String descricao;
-    private Date data_inicial;
-    private Time horario_inicial;
-    private Time horario_final;
-
-    @OneToMany(mappedBy = "atividade")
-    private Set<Class> usuarios;
-
-    @OneToMany(mappedBy = "atividade")
-    private Set<EditionAtivity> edicao;
-
-    @ManyToAny
-    private User aluno_id;
-
-    @OneToOne
-    private Edition espaco_id;
+    private Date dataInicial;
+    private Time horarioInicial;
+    private Time horarioFinal;
+    private int espacoId;
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    public Date getDataInicial() {
+        return dataInicial;
+    }
+    public void setDataInicial(Date dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+    public Time getHorarioInicial() {
+        return horarioInicial;
+    }
+    public void setHorarioInicial(Time horarioInicial) {
+        this.horarioInicial = horarioInicial;
+    }
+    public Time getHorarioFinal() {
+        return horarioFinal;
+    }
+    public void setHorarioFinal(Time horarioFinal) {
+        this.horarioFinal = horarioFinal;
+    }
+    public int getEspacoId() {
+        return espacoId;
+    }
+    public void setEspacoId(int espacoId) {
+        this.espacoId = espacoId;
+    }
 }

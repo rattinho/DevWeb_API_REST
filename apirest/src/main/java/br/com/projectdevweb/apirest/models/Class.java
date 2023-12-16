@@ -1,25 +1,44 @@
 package br.com.projectdevweb.apirest.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.*;
 
 @Entity
 @Table(name = "turmas")
 public class Class {
 
-    @EmbeddedId
-    private Class id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    private int usuarioId;
+    private int atividadeId;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "usuario_id")
-    private User usuario;
+    public int getUsuarioId() {
+        return usuarioId;
+    }
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "atividade_id")
-    private Ativity atividade;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
-    // getters e setters
+    public int getAtividadeId() {
+        return atividadeId;
+    }
+
+    public void setAtividadeId(int atividadeId) {
+        this.atividadeId = atividadeId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

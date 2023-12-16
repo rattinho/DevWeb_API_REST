@@ -1,25 +1,34 @@
 package br.com.projectdevweb.apirest.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.*;
 
 @Entity
 @Table(name = "edicao_atividade")
 public class EditionAtivity {
 
-    @EmbeddedId
-    private Class id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int edicaoId;
+    private int atividadeId;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "edicao_id")
-    private Edition edicao;
+    public int getEdicaoId() {
+        return edicaoId;
+    }
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "atividade_id")
-    private Ativity atividade;
+    public void setEdicaoId(int edicaoId) {
+        this.edicaoId = edicaoId;
+    }
 
-    // getters e setters
+    public int getAtividadeId() {
+        return atividadeId;
+    }
+
+    public void setAtividadeId(int atividadeId) {
+        this.atividadeId = atividadeId;
+    }
 }

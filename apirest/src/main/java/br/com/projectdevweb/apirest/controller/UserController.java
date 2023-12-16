@@ -16,14 +16,18 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    //Sign in User
     @PostMapping("/cadastrar")
     public User save(@RequestBody User u) {
         return userRepository.save(u);
     }
 
-    @GetMapping("/{id}/pagina")
+    //Get Information for 1 User
+    @GetMapping("/{id}")
     public User searchUser(@PathVariable int id) {
         return userRepository.findById(id);
     }
+
+    
     
 }
