@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 @Repository
 public class UserRepository {
@@ -21,5 +20,13 @@ public class UserRepository {
 
     public User save(User p) {
         return repository.save(p);
+    }
+
+    public User findById(int id) {
+        try{
+            return repository.findById(id).get();
+        }catch(Exception e){
+            return new User();
+        }
     }
 }
