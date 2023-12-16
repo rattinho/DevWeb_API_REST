@@ -13,32 +13,31 @@ public class AtivityController {
     @Autowired
     private AtivityRepository ativityRepository;
 
-    // Vizualize Ativity
+    //Vizualisar uma Atividade Especifica
     @GetMapping("/{id}")
     public Ativity searchAtivity(@PathVariable int id) {
         return ativityRepository.findById(id);
     }
 
-    // Cadastra Atividade
+    //Cadastrar uma Atividade
     @PostMapping("/cadastrar")
     public Ativity save(@RequestBody Ativity a) {
         return ativityRepository.save(a);
     }
 
-    
-    // Get all Ativitys
+    //Vizualisar todas as Atividades
     @GetMapping("/all")
     public Iterable<Ativity> searchAll() {
         return ativityRepository.findAll();
     }
 
-    // Deleta Atividade
+    //Deletar Atividade
     @DeleteMapping("/remove")
     public String remove(@RequestBody Ativity a) {
         return ativityRepository.remove(a);
     }
 
-    // Atualiza Atividade
+    //Atualizar Atividade
     @PutMapping("/atualiza")
     public String atualiza(@RequestBody Ativity a) {
         return ativityRepository.atualiza(a);

@@ -21,46 +21,43 @@ CREATE TABLE Edicao (
     data_inicial DATE NOT NULL,
     data_final DATE NOT NULL,
     cidade VARCHAR(255) NOT NULL,
-        organizador_id INT references Usuario(id),
-   evento_id INT REFERENCES Evento(id)
+    organizador_id INT references Usuario(id),
+    evento_id INT REFERENCES Evento(id)
 );
 
 CREATE TABLE Espaco (
-  id SERIAL PRIMARY KEY, 
-  nome VARCHAR (255), 
-  localizacao TEXT, 
-  capacidade INT
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR (255),
+    localizacao TEXT,
+    capacidade INT
 );
-
 
 CREATE TABLE Atividade (
-   id SERIAL PRIMARY KEY, 
-   nome VARCHAR (255), 
-   tipo VARCHAR (255), 
-   descricao TEXT, 
-   data_inicial DATE, 
-   horario_inicial TIME, 
-   horario_final TIME,
-	espaco_id int references Espaco(id)
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR (255),
+    tipo VARCHAR (255),
+    descricao TEXT,
+    data_inicial DATE,
+    horario_inicial TIME,
+    horario_final TIME,
+    espaco_id int references Espaco(id)
 );
 
-
 create table turmas (
-	id SERIAL primary key,
-	usuario_id int references Usuario(id),
-	atividade_id int references Atividade(id)
+    id SERIAL primary key,
+    usuario_id int references Usuario(id),
+    atividade_id int references Atividade(id)
 );
 
 create table edicao_atividade (
-	id SERIAL primary key,
-	edicao_id int references Edicao(id),
-	atividade_id int references Atividade(id)
+    id SERIAL primary key,
+    edicao_id int references Edicao(id),
+    atividade_id int references Atividade(id)
 );
 
 create table mensagem (
-	id SERIAL primary key,
-	owner_id int references Usuario(id),
-	to_id int references Atividade(id),
-	content VARCHAR (255)
+    id SERIAL primary key,
+    owner_id int references Usuario(id),
+    to_id int references Atividade(id),
+    content VARCHAR (255)
 );
-

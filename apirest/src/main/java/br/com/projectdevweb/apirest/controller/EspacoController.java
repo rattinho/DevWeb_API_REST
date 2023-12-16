@@ -14,24 +14,25 @@ public class EspacoController {
     @Autowired
     private EspacoRepository espacoRepository;
 
-    // Sign in User
+    //Cadastrar um Espaço
     @PostMapping("/cadastrar")
     public Espaco save(@RequestBody Espaco u) {
         return espacoRepository.save(u);
     }
 
-    // Get all spaces
+    //Vizualizar todos os Espaços
     @GetMapping("/all")
     public Iterable<Espaco> searchAll() {
         return espacoRepository.findAll();
     }
 
-    // Get Information for 1 Espaco
+    //Vizualisar um Espaço especifico
     @GetMapping("/{id}")
     public Espaco searchEspaco(@PathVariable int id) {
         return espacoRepository.findById(id);
     }
 
+    //Atualizar informações de um determinado Espaço
     @PutMapping("/atualiza")
     public String atualiza(@RequestBody Espaco a) {
         return espacoRepository.atualiza(a);

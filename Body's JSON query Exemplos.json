@@ -1,0 +1,130 @@
+{
+    "usuarios": [
+        {
+            // Exemplo de usuário
+            "login": "usuario1",
+            "email": "usuario1@email.com",
+            "nome": "Nome do Usuário 1",
+            "afiliacao": "Afiliacao 1",
+            "perfil": "Perfil 1",
+            "senha": "senha123"
+        },
+        {
+            // Outro exemplo de usuário
+            "login": "usuario2",
+            "email": "usuario2@email.com",
+            "nome": "Nome do Usuário 2",
+            "afiliacao": "Afiliacao 2",
+            "perfil": "Perfil 2",
+            "senha": "outraSenha456"
+        }
+    ],
+    "eventos": [
+        {
+            // Exemplo de evento
+            "nome": "Evento 1",
+            "sigla": "EVT1",
+            "descricao": "Descrição do Evento 1"
+        },
+        {
+            // Outro exemplo de evento
+            "nome": "Evento 2",
+            "sigla": "EVT2",
+            "descricao": "Descrição do Evento 2"
+        }
+    ],
+    "edicoes": [
+        {
+            // Exemplo de edição
+            "ano": 2023,
+            "data_inicial": "2023-01-01",
+            "data_final": "2023-01-10",
+            "cidade": "Cidade 1",
+            "organizador_id": 1,
+            "evento_id": 1
+        },
+        {
+            // Outro exemplo de edição
+            "ano": 2023,
+            "data_inicial": "2023-02-01",
+            "data_final": "2023-02-10",
+            "cidade": "Cidade 2",
+            "organizador_id": 2,
+            "evento_id": 2
+        }
+    ],
+    "espacos": [
+        {
+            // Exemplo de espaço
+            "nome": "Espaço 1",
+            "localizacao": "Localização 1",
+            "capacidade": 100
+        },
+        {
+            // Outro exemplo de espaço
+            "nome": "Espaço 2",
+            "localizacao": "Localização 2",
+            "capacidade": 50
+        }
+    ],
+    "atividades": [
+        {
+            // Exemplo de atividade
+            "nome": "Atividade 1",
+            "tipo": "Tipo 1",
+            "descricao": "Descrição da Atividade 1",
+            "data_inicial": "2023-01-05",
+            "horario_inicial": "14:00:00",
+            "horario_final": "16:00:00",
+            "espaco_id": 1
+        },
+        {
+            // Outro exemplo de atividade
+            "nome": "Atividade 2",
+            "tipo": "Tipo 2",
+            "descricao": "Descrição da Atividade 2",
+            "data_inicial": "2023-02-05",
+            "horario_inicial": "10:00:00",
+            "horario_final": "12:00:00",
+            "espaco_id": 2
+        }
+    ],
+    "turmas": [
+        {
+            // Exemplo de turma
+            "usuario_id": 1,
+            "atividade_id": 1
+        },
+        {
+            // Outro exemplo de turma
+            "usuario_id": 2,
+            "atividade_id": 2
+        }
+    ],
+    "edicao_atividade": [
+        {
+            // Exemplo de associação entre edição e atividade
+            "edicao_id": 1,
+            "atividade_id": 1
+        },
+        {
+            // Outro exemplo de associação entre edição e atividade
+            "edicao_id": 2,
+            "atividade_id": 2
+        }
+    ],
+    "mensagens": [
+        {
+            // Exemplo de mensagem
+            "owner_id": 1,
+            "to_id": 1,
+            "content": "Mensagem de exemplo para Atividade 1"
+        },
+        {
+            // Outro exemplo de mensagem
+            "owner_id": 2,
+            "to_id": 2,
+            "content": "Mensagem de exemplo para Atividade 2"
+        }
+    ]
+}

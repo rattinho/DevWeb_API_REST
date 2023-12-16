@@ -15,18 +15,19 @@ public class MensageController {
     @Autowired
     private MensageRepository mensageRepository;
 
-    // Sign in User
+    //Cadastrar Mensagem
     @PostMapping("/cadastrar")
     public Mensage save(@RequestBody Mensage u) {
         return mensageRepository.save(u);
     }
 
-    // Get Mensagem for one ativity
+    //Vizualisar mensagens de uma determinada Atividade
     @GetMapping("/{id}")
     public List<Mensage> searchMAtivty(@PathVariable int id) {
         return mensageRepository.findByAtivity(id);
     }
 
+    //Deletar mensagens
     @DeleteMapping("/remove")
     public String remove(@RequestBody Mensage a) {
         return mensageRepository.remove(a);

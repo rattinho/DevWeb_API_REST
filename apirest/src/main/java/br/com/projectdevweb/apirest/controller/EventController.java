@@ -14,29 +14,31 @@ public class EventController {
     @Autowired
     private EventRepository eventRepository;
 
-    // Sign in User
+    //Cadastrar Evento
     @PostMapping("/cadastrar")
     public Event save(@RequestBody Event u) {
         return eventRepository.save(u);
     }
 
-    // Get all Events
+    //Vizualisar todos os Eventos
     @GetMapping("/all")
     public Iterable<Event> searchAll() {
         return eventRepository.findAll();
     }
 
-    // Get Information for 1 Espaco
+    //Vizualisar um Evento especifico
     @GetMapping("/{id}")
     public Event searchEspaco(@PathVariable int id) {
         return eventRepository.findById(id);
     }
 
+    //Atualizar informações de um Evento
     @PutMapping("/atualiza")
     public String atualiza(@RequestBody Event a) {
         return eventRepository.atualiza(a);
     }
 
+    //Remover um Evento
     @DeleteMapping("/remove")
     public String remove(@RequestBody Event a) {
         return eventRepository.remove(a);

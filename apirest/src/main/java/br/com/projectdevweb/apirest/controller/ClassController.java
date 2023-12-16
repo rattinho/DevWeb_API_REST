@@ -15,24 +15,25 @@ public class ClassController {
     @Autowired
     private ClassRepository classRepository;
 
-    // Favorite a Ativity
+    //Favoritar/Inscrever-se em uma Atividade
     @PostMapping("/cadastrar")
     public Class save(@RequestBody Class u) {
         return classRepository.save(u);
     }
 
-    // Get all vinculos entre alunos e atividade
+    //Vizualisar relação entre usuários e Atividades
     @GetMapping("/all")
     public Iterable<Class> searchAll() {
         return classRepository.findAll();
     }
 
-    // Get all vinculos de uma atividade
+    //Vizualisar relação entre usuários e uma determinada Atividade
     @GetMapping("/atv/{id}")
-    public List<Class> searchMAtivty(@PathVariable int id) {
+    public List<Class> searchAtivty(@PathVariable int id) {
         return classRepository.findByAtivity(id);
     }
 
+    //Remover relação entre usuário e Atividade
     @DeleteMapping("/remover")
     public String remove(@RequestBody Class u) {
         return classRepository.remove(u);

@@ -14,29 +14,31 @@ public class EditionController {
     @Autowired
     private EditionRepository editionRepository;
 
-    // Sign in User
+    //Cadastrar Edição
     @PostMapping("/cadastrar")
     public Edition save(@RequestBody Edition u) {
         return editionRepository.save(u);
     }
 
-    // Get all Editions
+    //Vizualisar todas as Edições
     @GetMapping("/all")
     public Iterable<Edition> searchAll() {
         return editionRepository.findAll();
     }
 
-    // Get Information for 1 Edicao
+    //Obter informações de uma determinada Edição
     @GetMapping("/{id}")
     public Edition searchEspaco(@PathVariable int id) {
         return editionRepository.findById(id);
     }
 
+    //Atualizar informações de uma Edição
     @PutMapping("/atualiza")
     public String atualiza(@RequestBody Edition a) {
         return editionRepository.atualiza(a);
     }
 
+    //Remover uma Edição
     @DeleteMapping("/remove")
     public String remove(@RequestBody Edition a) {
         return editionRepository.remove(a);

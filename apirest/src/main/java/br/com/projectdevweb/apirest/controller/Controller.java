@@ -9,6 +9,7 @@ import org.springframework.core.io.Resource;
 import java.io.IOException;
 import java.nio.file.Path;
 
+//Neste Trecho, fazemos com que o caminho raiz da API disponibilize a documentação da mesma
 @RestController
 public class Controller {
     @GetMapping("/")
@@ -16,8 +17,6 @@ public class Controller {
     public String showDocumentation() throws IOException {
         Resource resource = new ClassPathResource("static/index.html");
         Path path = Path.of(resource.getURI());
-
-        // Lê o conteúdo do arquivo HTML e o retorna como String
         return Files.readString(path);
     }
 
