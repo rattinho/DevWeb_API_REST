@@ -47,8 +47,7 @@ public class EditionAtivityRespository {
     }
 
     public String remove(EditionAtivity p) {
-        // Verifica se o usuário já está cadastrado na atividade
-        EditionAtivity existingClasses = findById(p.getEdicaoId());
+        EditionAtivity existingClasses = findById(p.getId());
 
         try {
             repository.delete(existingClasses);

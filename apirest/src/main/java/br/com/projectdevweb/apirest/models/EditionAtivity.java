@@ -31,4 +31,12 @@ public class EditionAtivity {
     public void setAtividadeId(int atividadeId) {
         this.atividadeId = atividadeId;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
